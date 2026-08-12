@@ -1,0 +1,54 @@
+# ---------------------------------------------------------------------------
+# Biometric data. Never commit any of this.
+# A voiceprint identifies a person. Treat this section as non-negotiable.
+# ---------------------------------------------------------------------------
+enrollments/
+registry.json
+*.registry.json
+*.eagle
+profiles.json
+
+# Audio. May contain a person's voice even when you think it does not.
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.ogg
+samples/
+recordings/
+
+# Calibration output (contains per-person similarity scores)
+calibration-*.json
+calibration-*.csv
+
+# ---------------------------------------------------------------------------
+# Secrets
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.key
+*_keys.txt
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

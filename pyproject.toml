@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speaker-context-layer"
+version = "0.1.0"
+description = "Local, consented speaker attribution for AI assistants — an MCP server that answers who is speaking, calibrated to the voices you actually hear."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Sammy Gedamu" }]
+keywords = ["mcp", "speaker-recognition", "speaker-identification", "voice", "diarization", "consent", "african-languages", "code-switching"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "resemblyzer>=0.1.4",
+  "fastmcp>=2.0",
+  "sounddevice>=0.4.6",
+]
+
+[project.optional-dependencies]
+live = ["pveagle>=1.0", "pvrecorder>=1.2", "google-genai>=1.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+speaker-context-layer = "speaker_context_layer.mcp_server:main"
+scl-calibrate = "speaker_context_layer.calibrate:main"
+scl-room = "speaker_context_layer.live_room:main"
+
+[project.urls]
+Homepage = "https://github.com/sammyghe/speaker-context-layer"
+Issues = "https://github.com/sammyghe/speaker-context-layer/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

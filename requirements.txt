@@ -1,0 +1,12 @@
+# Runtime dependencies. Prefer `pip install -e .` — this file exists for
+# environments that expect a requirements.txt.
+numpy>=1.24
+scipy>=1.10
+resemblyzer>=0.1.4
+fastmcp>=2.0
+sounddevice>=0.4.6
+
+# Live room extras (optional):  pip install -e ".[live]"
+# pveagle>=1.0
+# pvrecorder>=1.2
+# google-genai>=1.0
