@@ -1,4 +1,4 @@
-"""Behavioural tests for the registry.
+﻿"""Behavioural tests for the registry.
 
 A stub encoder stands in for the real model, so these run in milliseconds and
 test the logic rather than the ML. Nothing here downloads weights.
@@ -225,7 +225,7 @@ def test_ambiguous_lines_are_not_attributed(tmp_path, monkeypatch):
     registry = make_registry(tmp_path)
     monkeypatch.setattr(
         registry, "identify",
-        lambda *_a, **_k: {"speaker": "AMBIGUOUS", "candidates": ["Sammy", "Ema"]},
+        lambda *_a, **_k: {"speaker": "AMBIGUOUS", "candidates": ["Sammy", "Amara"]},
     )
     assert label_transcript_line(registry, "x.wav", "We approve the spend.") == (
         "[UNVERIFIED, possibly Sammy]: We approve the spend."
@@ -235,10 +235,10 @@ def test_ambiguous_lines_are_not_attributed(tmp_path, monkeypatch):
 # -- live room --------------------------------------------------------------
 
 def test_live_room_does_not_force_a_weak_match():
-    assert choose_identity(["Sammy", "Martha"], [0.22, 0.19])["speaker"] == "UNKNOWN"
+    assert choose_identity(["Sammy", "Yuki"], [0.22, 0.19])["speaker"] == "UNKNOWN"
 
 
 def test_live_room_reports_close_scores_as_ambiguous():
-    result = choose_identity(["Sammy", "Martha"], [0.72, 0.70])
+    result = choose_identity(["Sammy", "Yuki"], [0.72, 0.70])
     assert result["speaker"] == "AMBIGUOUS"
-    assert result["candidates"] == ["Sammy", "Martha"]
+    assert result["candidates"] == ["Sammy", "Yuki"]

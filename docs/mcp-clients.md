@@ -112,10 +112,23 @@ record_and_enroll(
 
 Both halves are required. `consent_confirmed` alone is refused — the method is what makes consent demonstrable later.
 
-Enroll each person once per language they speak:
+Enroll each person once per language they speak. This is the part that makes code-switching work — the same person in two languages needs two profiles:
 
 ```
 record_and_enroll(name="Sammy", language="lg", consent_confirmed=true, consent_method="verbal, in person")
+record_and_enroll(name="Amara", language="en", consent_confirmed=true, consent_method="verbal, in person")
+record_and_enroll(name="Amara", language="ig", consent_confirmed=true, consent_method="verbal, in person")
+record_and_enroll(name="Wei",   language="zh", consent_confirmed=true, consent_method="verbal, in person")
+record_and_enroll(name="Yuki",  language="ja", consent_confirmed=true, consent_method="verbal, in person")
+```
+
+`list_known_speakers` then shows who is enrolled in what:
+
+```
+Sammy   en, lg
+Amara   en, ig
+Wei     zh
+Yuki    ja
 ```
 
 Then check where you stand:

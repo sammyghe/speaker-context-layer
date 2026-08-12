@@ -6,7 +6,8 @@ A local MCP server that tells any AI assistant *who is speaking*. Voiceprints ne
 
 ```
 [Sammy]: We push the follow-up to Thursday.
-[Ema]: I'll own the documentation pack.
+[Amara]: I'll own the documentation pack.
+[Wei]: Can we revisit the budget line first?
 [UNKNOWN SPEAKER]: I don't agree with that.
 ```
 
@@ -39,7 +40,20 @@ Then say:
 
 > Use `record_and_enroll` to save my voice as Sammy in English — I consent, verbally, right now.
 
-Gemini CLI, troubleshooting, and why ChatGPT is a bad fit: **[docs/mcp-clients.md](docs/mcp-clients.md)**
+Setup for Gemini CLI and troubleshooting: **[docs/mcp-clients.md](docs/mcp-clients.md)**
+
+### Where it works, honestly
+
+| | |
+| --- | --- |
+| Claude Code, Claude Desktop, Gemini CLI | **Yes** — local, today |
+| Claude mobile / voice | Not yet — needs a remote server |
+| ChatGPT text | Poorly — connectors are mostly limited to `search`/`fetch` |
+| ChatGPT **voice mode** | **No** — MCP tools are switched off during voice conversations |
+
+Voice mode is the least available place, which is the opposite of what you'd guess. An MCP tool call carries *text* — by the time the model calls a tool, the audio is already transcribed and gone, so no tool can reach the waveform it would need. Speaker identity has to be computed *alongside* a voice conversation by something holding the microphone, which is exactly what `scl-room` does.
+
+Full explanation, and what a Connector Directory listing would cost: **[docs/where-it-runs.md](docs/where-it-runs.md)**
 
 ---
 

@@ -47,7 +47,7 @@ What the fairness literature actually found, evaluating speaker verification acr
 
 > Discrimination performance is reasonably robust across accent groups, while **calibration** performance degrades dramatically on accents that are not well represented in the training data.
 
-Discrimination is *can it tell Sammy from Ema.* Calibration is *is 0.94 the right place to draw the line.* The first survives. The second does not.
+Discrimination is *can it tell Sammy from Amara.* Calibration is *is 0.94 the right place to draw the line.* The first survives. The second does not.
 
 And the failure is silent. A miscalibrated threshold does not raise an error — it returns a confident wrong name. For a system whose whole output is attribution, that is the worst available failure mode.
 

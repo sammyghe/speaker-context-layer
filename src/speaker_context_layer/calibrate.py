@@ -27,7 +27,8 @@ Usage
 
 Clips are named:  <person>__<language>__<take>.wav
 
-    sammy__en__1.wav   sammy__lg__1.wav   ema__en__1.wav   ema__en__2.wav
+    sammy__en__1.wav   sammy__lg__1.wav   amara__en__1.wav   amara__ig__1.wav
+    wei__en__1.wav     wei__zh__1.wav     yuki__ja__1.wav    thabo__en__1.wav
 
 Every clip must be of a person who consented to being recorded and enrolled.
 """
