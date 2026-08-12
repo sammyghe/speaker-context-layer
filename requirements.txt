@@ -6,6 +6,11 @@ resemblyzer>=0.1.4
 fastmcp>=2.0
 sounddevice>=0.4.6
 
+# resemblyzer -> webrtcvad still imports pkg_resources, which Python 3.12+ no
+# longer ships and setuptools 81 removed. Without this, the first real
+# identification fails with ModuleNotFoundError: No module named 'pkg_resources'.
+setuptools<81
+
 # Live room extras (optional):  pip install -e ".[live]"
 # pveagle>=1.0
 # pvrecorder>=1.2

@@ -24,6 +24,11 @@ dependencies = [
   "resemblyzer>=0.1.4",
   "fastmcp>=2.0",
   "sounddevice>=0.4.6",
+  # resemblyzer -> webrtcvad still imports pkg_resources, which Python 3.12+
+  # no longer ships and setuptools 81 removed. Without this pin, the first
+  # real identification dies with ModuleNotFoundError: No module named
+  # 'pkg_resources'. Remove once webrtcvad stops importing it.
+  "setuptools<81",
 ]
 
 [project.optional-dependencies]
@@ -32,6 +37,7 @@ dev = ["pytest>=8.0"]
 
 [project.scripts]
 speaker-context-layer = "speaker_context_layer.mcp_server:main"
+scl-demo = "speaker_context_layer.demo:main"
 scl-calibrate = "speaker_context_layer.calibrate:main"
 scl-room = "speaker_context_layer.live_room:main"
 
